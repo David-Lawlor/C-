@@ -8,7 +8,7 @@ namespace Lab1
 {
     abstract class ThreeDShape : Object
     {
-        readonly string typeOfShape;
+        public string typeOfShape{ get; set; }
 
         public ThreeDShape(string typeOfShape)
         {

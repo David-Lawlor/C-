@@ -8,14 +8,14 @@ namespace ConsoleApplication2
 {
     class Circle : Shape
     {
-        private Vertex origin;
-        private int radius;
+        public Vertex Origin{get; set;}
+        public int Radius { get; set; }
 
         public Circle(string colour, int x, int y, int radius)
             : base(colour)
         {
-            this.origin = new Vertex(x, y);
-            this.radius = radius;
+            this.Origin = new Vertex(x, y);
+            this.Radius = radius;
         }
 
         public Circle()
@@ -26,19 +26,19 @@ namespace ConsoleApplication2
 
         public override string ToString()
         {
-            return base.ToString() + "\nLine origin: (" + origin.XCoord + ", " + origin.YCoord + ")" +
-                "\nRadius: " + radius;
+            return base.ToString() + "\nLine origin: (" + Origin.XCoord + ", " + Origin.YCoord + ")" +
+                "\nRadius: " + Radius;
         }
 
         public override void Translate(Vertex v)
         {
-            this.origin.XCoord += v.XCoord;
-            this.origin.YCoord += v.YCoord;
+            this.Origin.XCoord += v.XCoord;
+            this.Origin.YCoord += v.YCoord;
         }
 
         public double Area()
         {
-            return Math.PI * Math.Pow(radius, 2); 
+            return Math.PI * Math.Pow(Radius, 2); 
         }
     }
 }
