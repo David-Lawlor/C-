@@ -29,7 +29,7 @@ namespace Lab4
                 {
                     throw new IndexOutOfRangeException();
                 }
-                return Scores.ElementAt(ca-1);
+                return Scores[ca-1];
             }
             catch (IndexOutOfRangeException){
                 Console.WriteLine("Invalid CA specied");
