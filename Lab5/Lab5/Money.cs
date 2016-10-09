@@ -24,61 +24,61 @@ namespace Lab5
 
         public Currency Currency { get; set; }
 
-        public Money(double amount, Currency currency)
+        public Money(double amount, Currency currency): this()
         {
-            Amount = amount;
-            Currency = currency;
+            this.Amount = amount;
+            this.Currency = currency;
         }
 
-        public Money ConvertMoney(Currency currency)
+        public double ConvertMoney(Currency currency)
         {
             return convert(this.Amount, this.Currency, currency);
         }
 
-        public Money operator +(Money money1, Money money2)
+        public static Money operator +(Money money1, Money money2)
         {
-            Money temp = convert(money2.Amount, money2.Currency, money1.Currency);
-            return new Money(money1.Amount + temp.Amount, money1.Currency);
+            double temp = convert(money2.Amount, money2.Currency, money1.Currency);
+            return new Money(money1.Amount + temp, money1.Currency);
         }
 
-        private Money convert(double amount, Currency currencyFrom, Currency currencyTo)
+        public static double convert(double amount, Currency currencyFrom, Currency currencyTo)
         {
             double convertedAmount = 0;
 
-            if (currencyFrom.Equals("Eur"))
+            if (currencyFrom.Equals(Currency.Eur))
             {
-                if (currencyTo.Equals("Yen"))
+                if (currencyTo.Equals(Currency.Yen))
                 {
-                    convertedAmount = this.Amount * EUR_TO_YEN;
+                    convertedAmount = amount * EUR_TO_YEN;
                 }
-                else if (currencyTo.Equals("USD"))
+                else if (currencyTo.Equals(Currency.USD))
                 {
-                    convertedAmount = this.Amount * EUR_TO_USD;
+                    convertedAmount = amount * EUR_TO_USD;
                 }
             }
-            else if (currencyFrom.Equals("USD"))
+            else if (currencyFrom.Equals(Currency.USD))
             {
-                if (currencyTo.Equals("Yen"))
+                if (currencyTo.Equals(Currency.Yen))
                 {
-                    convertedAmount = this.Amount * USD_TO_YEN;
+                    convertedAmount = amount * USD_TO_YEN;
                 }
-                else if (currencyTo.Equals("Eur"))
+                else if (currencyTo.Equals(Currency.Eur))
                 {
-                    convertedAmount = this.Amount * (1 / EUR_TO_USD);
+                    convertedAmount = amount * (1 / EUR_TO_USD);
                 }
             }
-            else if (currencyFrom.Equals("Yen"))
+            else if (currencyFrom.Equals(Currency.Yen))
             {
-                if (currencyTo.Equals("USD"))
+                if (currencyTo.Equals(Currency.USD))
                 {
-                    convertedAmount = this.Amount * (1 / USD_TO_YEN);
+                    convertedAmount = amount * (1 / USD_TO_YEN);
                 }
-                else if (currencyTo.Equals("Eur"))
+                else if (currencyTo.Equals(Currency.Eur))
                 {
-                    convertedAmount = this.Amount * (1 / EUR_TO_YEN);
+                    convertedAmount = amount * (1 / EUR_TO_YEN);
                 }
             }
-            return new Money(convertedAmount, currencyTo);
+            return convertedAmount;
         }
     }
 }
