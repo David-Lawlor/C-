@@ -8,14 +8,14 @@ namespace ConsoleApplication2
 {
     class Line : Shape
     {
-        Vertex vertex1;
-        Vertex vertex2;
+        public Vertex Vertex1 { get; set; }
+        public Vertex Vertex2 { get; set; }
 
         public Line(String colour, int x1, int y1, int x2, int y2)
             : base(colour)
         {
-            vertex1 = new Vertex(x1, y1);
-            vertex2 = new Vertex(x2, y2);
+            Vertex1 = new Vertex(x1, y1);
+            Vertex2 = new Vertex(x2, y2);
         }
 
         public Line()
@@ -25,17 +25,17 @@ namespace ConsoleApplication2
         }
 
         public override void Translate(Vertex v){
-            this.vertex1.XCoord += v.XCoord;
-            this.vertex1.YCoord += v.YCoord;
-            this.vertex2.XCoord += v.XCoord;
-            this.vertex2.YCoord += v.YCoord;
+            this.Vertex1.XCoord += v.XCoord;
+            this.Vertex1.YCoord += v.YCoord;
+            this.Vertex2.XCoord += v.XCoord;
+            this.Vertex2.YCoord += v.YCoord;
         }
 
         public override string ToString()
         {
             return base.ToString() +
-                "\nLine origin: (" + vertex1.XCoord + ", " + vertex1.YCoord + ")" +
-                "\nLine End: (" + vertex2.XCoord + ", " + vertex2.YCoord + ")";
+                "\nLine origin: (" + Vertex1.XCoord + ", " + Vertex1.YCoord + ")" +
+                "\nLine End: (" + Vertex2.XCoord + ", " + Vertex2.YCoord + ")";
         }
     }
 }

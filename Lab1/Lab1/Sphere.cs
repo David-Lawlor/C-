@@ -8,7 +8,7 @@ namespace Lab1
 {
     class Sphere : ThreeDShape
     {
-        private double radius{get; set;}
+        public double radius{get; set;}
 
         public Sphere(string typeOfShape, double radius): base(typeOfShape)
         {

@@ -8,11 +8,11 @@ namespace ConsoleApplication2
 {
     abstract class Shape : Object
     {
-        private string colour { get; set; }
+        public string Colour { get; set; }
 
         public Shape(string colour)
         {
-            this.colour = colour;
+            this.Colour = colour;
         }
 
         public Shape()
@@ -23,7 +23,7 @@ namespace ConsoleApplication2
 
         public override string ToString()
         {
-            return ("The colour of the shape is " + this.colour) ;
+            return ("The colour of the shape is " + this.Colour) ;
         }
 
         public abstract void Translate(Vertex v);

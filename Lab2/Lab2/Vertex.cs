@@ -8,25 +8,13 @@ namespace ConsoleApplication2
 {
     class Vertex : Object
     {
-        private int xCoord;
-
-        public int XCoord
-        {
-            get { return xCoord; }
-            set { xCoord = value; }
-        }
-        private int yCoord;
-
-        public int YCoord
-        {
-            get { return yCoord; }
-            set { yCoord = value; }
-        }
+        public int XCoord { get; set; }
+        public int YCoord { get; set; }
 
         public Vertex(int xCoord, int yCoord)
         {
-            this.xCoord = xCoord;
-            this.yCoord = yCoord;
+            this.XCoord = xCoord;
+            this.YCoord = yCoord;
         }
 
         public Vertex()

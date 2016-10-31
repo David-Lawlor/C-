@@ -8,33 +8,27 @@ namespace Lab3
 {
     class Sphere : IHasVolume
     {
-        private double radius;
+        public double Radius { get; set; }
 
-        public double Radius
+        public Sphere(double radius)
         {
-            get { return radius; }
-            set { radius = value; }
-        }
-
-        public Sphere(string typeOfShape, double radius)
-        {
-            this.radius = radius;
+            this.Radius = radius;
         }
 
         public Sphere()
-            : this("", 0)
+            : this(0)
         {
 
         }
 
         public double CalculateVolume()
         {
-            return Math.PI * Math.Pow(radius, 3);
+            return Math.PI * Math.Pow(Radius, 3);
         }
 
         public override string ToString()
         {
-            return base.ToString() + "\nThe radius of the sphere is " + radius + "\nThe volume of the sphere is " + CalculateVolume();
+            return "\nThe radius of the sphere is " + Radius + "\nThe volume of the sphere is " + CalculateVolume();
         }
     }
 }
