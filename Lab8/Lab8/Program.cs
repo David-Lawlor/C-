@@ -28,6 +28,13 @@ namespace Lab7
 
             student = class1[1];
             Console.WriteLine(student.Name + " " + student.StudentID);
+
+            foreach (Student stu in class1)               // use iterator
+            {
+                Console.WriteLine(stu.ToString());
+            }
+
+            Console.ReadLine();
         }
     }
 }
