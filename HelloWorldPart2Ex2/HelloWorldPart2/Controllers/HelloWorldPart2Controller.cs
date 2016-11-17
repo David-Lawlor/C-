@@ -10,7 +10,7 @@ namespace HelloWorldPart2.Controllers
     public class HelloWorldPart2Controller : Controller
     {
         // GET: HelloWorldPart2
-        public ActionResult Index(User user)
+        public ActionResult Index(LoginViewModel user)
         {
             return View(user);
         }
@@ -29,7 +29,7 @@ namespace HelloWorldPart2.Controllers
 
         // POST: HelloWorldPart2/Create
         [HttpPost]
-        public ActionResult Welcome(User user)
+        public ActionResult Welcome(LoginViewModel user)
         {
             try
             {
